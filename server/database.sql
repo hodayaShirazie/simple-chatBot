@@ -1,4 +1,4 @@
-CREATE DATABASE chatBot;
+CREATE DATABASE chatbot;
 
 CREATE TYPE sender_type AS ENUM ('user', 'bot');
 

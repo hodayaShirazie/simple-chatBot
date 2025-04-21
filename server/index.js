@@ -46,12 +46,47 @@ app.post('/api/messages', async (req, res) => {
       res.status(500).json({ error: 'Failed to save message', details: err.message });
     }
   });
-  
+
+
+  // DELETE all messages
+app.delete('/api/messages', async (req, res) => {
+  try {
+    await pool.query('DELETE FROM messages');
+    res.json({ success: true, message: 'All messages deleted successfully' });
+  } catch (err) {
+    console.error('Error deleting messages:', err);
+    res.status(500).json({ error: 'Failed to delete messages' });
+  }
+});
+
 
 
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
+
+
+
+
+
+
+
+
+
+// DELETE all messages
+// app.delete('/api/messages', async (req, res) => {
+//   try{
+//     console.log('Received request to delete messages');
+//     const result = await pool.query('DELETE FROM messages RETURNING *');
+//     console.log('Deleted messages:', result.rows);
+//     res.json({ success: true });
+//   }
+//   catch (err) {
+//     console.error('Error deleting messages:', err);
+//     res.status(500).json({ error: 'Failed to delete messages' });
+//   }
+
+// });
 
 
