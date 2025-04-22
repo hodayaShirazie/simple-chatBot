@@ -12,9 +12,6 @@ app.use(express.json());
 
 
 
-
-
-
 // GET all messages
 app.get('/api/messages', async (req, res) => {
   try {
@@ -65,28 +62,3 @@ app.delete('/api/messages', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
-
-
-
-
-
-
-
-
-
-// DELETE all messages
-// app.delete('/api/messages', async (req, res) => {
-//   try{
-//     console.log('Received request to delete messages');
-//     const result = await pool.query('DELETE FROM messages RETURNING *');
-//     console.log('Deleted messages:', result.rows);
-//     res.json({ success: true });
-//   }
-//   catch (err) {
-//     console.error('Error deleting messages:', err);
-//     res.status(500).json({ error: 'Failed to delete messages' });
-//   }
-
-// });
-
-

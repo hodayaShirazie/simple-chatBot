@@ -11,7 +11,7 @@ const HomePage = () => {
 
   return (
     <div className="home-container">
-      <h1>Welcome to ChatBox</h1>
+      <h1>Welcome to ChatBot</h1>
       <button className="start-button" onClick={handleStartChat}>
         Start Chatting
       </button>
